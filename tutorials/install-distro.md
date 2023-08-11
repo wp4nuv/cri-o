@@ -46,7 +46,7 @@ not support pinning patch versions: `VERSION=1.18.3`
 
 ### Other yum based operating systems
 
-To install on the following operating systems, set the environment variable ```$OS```
+To install on the following operating systems, set the environment variable `$OS`
 to the appropriate value from the following table:
 
 | Operating system | $OS               |
@@ -76,7 +76,7 @@ as stated above and having `curl` and `gnupg` installed.
 
 Set the environment variable `$OS` to the appropriate value from the
 following table:
-
+<!-- Added missing systems and reordered the Ubuntu list -->
 | Operating system | $OS               |
 | ---------------- | ----------------- |
 | Debian 10        | `Debian_10`       |
