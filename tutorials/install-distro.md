@@ -15,13 +15,18 @@ and distributions (x-axis)
 | 1.16 | ✓          | ✓        | ✓        | ✓               | ✓        | ✓               | ✓              | ✓         | ✓          | ✓             | ✓             | ✓             | ✓             |
 <!-- markdownlint-enable MD013 -->
 
-To install, choose a supported version for your operating system, and export
-it as a variable, like so: `export VERSION=1.18`
-
-We also save releases as subprojects. If you'd, for instance, like to use `1.18.3`
-you can set `export VERSION=1.18:1.18.3`
-
 ## Installation Instructions
+
+### The `VERSION` variable
+
+Before installing `cri-o`, choose a supported version for your operating system
+that corresponds to the kubernetes minor version you are using. For example,
+if you are using kubernetes `1.18.x`, we recommend the `VERSION` variable
+match our `1.18` branch.
+For example: `export VERSION=1.18`
+<!-- Added the directory separator for pinning an install to a specific version -->
+We also save releases as subprojects. If you'd, for instance, like to
+pin `cri-o` to a specific version, for example, `1.18.3` you can set `export VERSION=1.18:/1.18.3`
 
 ### openSUSE
 
@@ -49,7 +54,11 @@ to the appropriate value from the following table:
 | Centos 8         | `CentOS_8`        |
 | Centos 8 Stream  | `CentOS_8_Stream` |
 | Centos 7         | `CentOS_7`        |
-
+<!--- TODO: figure out if Fedora is included in patch version releases
+and figure out how to make the $VERSION variable work for both yum and apt os
+Is revisiting the idea of a single VERSION variable worthwhile?
+PMD
+--->
 And then run the following as root:
 
 <!-- markdownlint-disable MD013 -->
@@ -61,22 +70,25 @@ yum install cri-o
 <!-- markdownlint-enable MD013 -->
 
 ### Apt based operating systems
+<!-- Modified the text so it reiterates the need for the VERSION env variable -->
+Note: this tutorial assumes you have set the environment variable `VERSION`
+as stated above and having `curl` and `gnupg` installed.
 
-Note: this tutorial assumes you have curl and gnupg installed
-
-To install on the following operating systems, set the environment variable ```$OS```
-to the appropriate value from the following table:
+Set the environment variable `$OS` to the appropriate value from the
+following table:
 
 | Operating system | $OS               |
 | ---------------- | ----------------- |
-| Debian Unstable  | `Debian_Unstable` |
-| Debian Testing   | `Debian_Testing`  |
-| Ubuntu 20.04     | `xUbuntu_20.04`   |
-| Ubuntu 19.10     | `xUbuntu_19.10`   |
-| Ubuntu 19.04     | `xUbuntu_19.04`   |
+| Debian 10        | `Debian_10`       |
+| Debian 11        | `Debian_11`       |
+| Raspbian 10      | `Raspbian_10`     |
+| Raspbian 11      | `Raspbian_11`     |
 | Ubuntu 18.04     | `xUbuntu_18.04`   |
+| Ubuntu 20.04     | `xUbuntu_20.04`   |
+| Ubuntu 21.10     | `xUbuntu_21.10`   |
+| Ubuntu 22.04     | `xUbuntu_22.04`   |
 
-And then run the following as root:
+And then run the following as root or using `sudo`:
 
 <!-- markdownlint-disable MD013 -->
 ```shell
